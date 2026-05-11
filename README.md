@@ -7,6 +7,15 @@
 
 ## How to Build and Execute
 
+# Generate assembly with NO optimization
+gcc -O0 -S hexdump.c -o hexdump_O0.s
+
+# Generate assembly with Level 1 optimization
+gcc -O1 -S hexdump.c -o hexdump_O1.s
+
+# Generate assembly with Level 3 optimization
+gcc -O3 -S hexdump.c -o hexdump_O3.s
+
 1. **Compile the following:**
 
    ```bash 
@@ -17,3 +26,7 @@
 
    ```bash
    ./hexdump binary.out
+
+
+   
+## How to Build and Execute
