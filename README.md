@@ -8,12 +8,20 @@
 ## How to Build and Execute
 
 # Generate assembly with NO optimization
-gcc -O0 -S hexdump.c -o hexdump_O0.s
+ ```bash 
+   gcc -O0 -S hexdump.c -o hexdump_O0.s
+   ```
 
 # Generate assembly with Level 1 optimization
+```bash
 gcc -O1 -S hexdump.c -o hexdump_O1.s
+   ```
+
 
 # Generate assembly with Level 3 optimization
+```bash
+gcc -O3 -S hexdump.c -o hexdump_O3.s
+   ```
 gcc -O3 -S hexdump.c -o hexdump_O3.s
 
 1. **Compile the following:**
