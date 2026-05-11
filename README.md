@@ -22,7 +22,6 @@ gcc -O1 -S hexdump.c -o hexdump_O1.s
 ```bash
 gcc -O3 -S hexdump.c -o hexdump_O3.s
    ```
-gcc -O3 -S hexdump.c -o hexdump_O3.s
 
 1. **Compile the following:**
 
