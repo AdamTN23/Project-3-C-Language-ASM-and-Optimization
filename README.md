@@ -23,7 +23,7 @@ gcc -O1 -S hexdump.c -o hexdump_O1.s
 gcc -O3 -S hexdump.c -o hexdump_O3.s
    ```
 
-1. **Compile the following:**
+# **Compile the following:**
 
    ```bash 
    gcc hexdump.c -o hexdump
@@ -33,7 +33,7 @@ gcc -O3 -S hexdump.c -o hexdump_O3.s
 
    ```bash
    ./hexdump binary.out
-
+  '''
 
    
 ## How to Build and Execute
