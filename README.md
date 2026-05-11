@@ -1,19 +1,19 @@
-readme_content = """# Hex Dump Utility (Strict Course Material Version)
+# C-Language, ASM and Optimization
+## Problem for Project 3:
 
-## Description
-This project contains a C program (`hexdump.c`) that reads a raw file (like `binary.out`) and generates a formatted hexadecimal dump. 
+1. Write a C program that outputs a hex dump of the attached file in the format below in Figure 1. The left most column is the number of bytes into the file (i.e. the address) in hex. The middle are 16 consecutive bytes in hex separated by spaces, and the left most column is the ASCII representation of the bytes with ‘.’ replacing any non-ASCII bytes.
 
-This specific implementation was designed to **strictly adhere to the provided course lecture slides**. It achieves standard hex-dump formatting without relying on outside functions or data types that were not explicitly taught in the curriculum.
+2. Compile it with optimization levels -O0, -O1 and -O3 and then compare and discuss the assembly code/data generated (using ‘-S’) by the different optimization levels. 
 
-## Features
-- **Address Offset:** Displays the 8-character hexadecimal address offset at the start of each row.
-- **Hexadecimal View:** Displays up to 16 consecutive bytes in hexadecimal format per row.
-- **ASCII View:** Displays the ASCII representation of the bytes on the right side, enclosed in pipes (`|`). Non-printable control characters are safely replaced with a dot (`.`).
-- **Strict Compliance Workarounds:** - Uses `fscanf` and `"r"` mode instead of `fread` and `"rb"`.
-  - Uses standard `char` instead of `unsigned char`.
-  - Uses Bitwise `& 0xFF` to strip sign-extensions from standard `char` to prevent negative hex formatting (e.g., preventing `ffffff80`).
-  - Uses manual `if/else` logic to prepend leading zeros instead of `%02x`.
+## How to Build and Execute
 
-## How to Compile and Generate Assembly
+1. **Compile the following:**
 
-To analyze how the GCC compiler optimizes the code at different levels, generate the assembly files (`.s`) using the `-S` flag:
+   ```bash 
+   gcc hexdump.c -o hexdump
+   ```
+
+2. **Now execute the program by passing the file as a command line**
+
+   ```bash
+   ./hexdump binary.out
