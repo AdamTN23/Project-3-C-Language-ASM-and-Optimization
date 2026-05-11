@@ -38,12 +38,15 @@ gcc -O3 -S hexdump.c -o hexdump_O3.s
 
 ## No Optimization
 
-Looking at the hexdump_O0.s, there isn't much memory movemebt because the variables live on the stack. The assembly is full of redudant mov1 instrctuins moving the data from memory into a register, which performs an operation and then immediately moves it back into memory. 
+Looking at the hexdump_O0.s, there isn't much memory movement because the variables live on the stack. The assembly is full of redudant mov1 instructions moving the data from memory into a register, which performs an operation and then immediately moves it back into memory. 
+There is also the fact that loops are using compare/cmpl and jump/jump-less-equal instructions to keep jumping back to the top of the loop. However, the local variables like the offset are mapped to memory locations on the stack.
 
 ## Level 1 Optimization
 
 The registers over stack, which just means that instead of contantly accessing the stack like %rbp, the compiler stores frequently used loop counters and variables directly within the CPU register (ex: %ebx ot %r12). Accessing registers is much faster than accessing memory.
+The compilier is using registers to get a hold of data across function calls like the printf, which uses pushq at the start of main to save the really old values of the registers to the stack.
 
 # Level 3 Optimization
 
 There are directives like the .p2align 4,,10 that forces the assembler to somewhat align the start of loop to specific memory boundaries (in this case the 16 byte boundaries), which allows the CPU to get the instructions from memory a lot faster. 
+The compilier also reorganizes the sequence of instructions quite more heavily, which attempts to keeps it full by rearranging when memory is read versus when the actual calculations are made. 
